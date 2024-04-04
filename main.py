@@ -1,3 +1,4 @@
+import logging
 import queue
 from io import BytesIO
 
@@ -110,6 +111,7 @@ while True:
             text=f'✅ Распознанная речь:\n{text}'
         )
     except Exception:
+        logging.exception('bot')
         updater.bot.send_message(
             chat_id=current_task.chat_id,
             reply_to_message_id=current_task.message_id,
